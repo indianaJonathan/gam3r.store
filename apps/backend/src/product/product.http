@@ -1,0 +1,37 @@
+GET http://localhost:3005/products
+
+###
+
+GET http://localhost:3005/products/29
+
+###
+
+DELETE http://localhost:3005/products/9
+
+###
+
+POST http://localhost:3005/products
+Content-Type: application/json
+
+{
+    "name": "Galaxy S24 Ultra",
+    "description": "Samsung Galaxy S24 Ultra é um smartphone top de linha",
+    "brand": "Samsung",
+    "model": "Galaxy S24",
+    "image": "",
+    "score": 4.8,
+    "review": "",
+    "tags": ["smartphone", "celular"],
+    "base": 3000.00,
+    "promo": 2500.00,
+    "lower": 2000.00,
+    "higher": 4000.00,
+    "avarage": 3000.00,
+    "specifications": {
+        "Tela": "6.2 polegadas",
+        "Memória": "8GB",
+        "Armazenamento": "128GB",
+        "Câmera": "12MP",
+        "Bateria": "4000 mAh"
+    }
+}
