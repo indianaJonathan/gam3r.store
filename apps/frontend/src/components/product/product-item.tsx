@@ -5,12 +5,18 @@ import { IconShoppingCartPlus } from "@tabler/icons-react";
 import Image from "next/image";
 import Link from "next/link";
 import ScoreReview from "../shared/score-review";
+import useCart from "@/data/hooks/useCart";
+import useInstallment from "@/data/hooks/useInstallment";
 
 export interface ProductItemProps {
     product: Product;
 }
 
 export function ProductItem({ product }: ProductItemProps) {
+    const { addItem } = useCart();
+
+    const installment = useInstallment(product.promo);
+
     return (
         <Link
             href={`/products/${product.id}`}
@@ -42,17 +48,17 @@ export function ProductItem({ product }: ProductItemProps) {
                     <span className="text-xl font-semibold text-emerald-400">
                         por {Currency.format(product.promo)}
                     </span>
-                    {/* <span>
+                    <span className="text-xs text-gray-400">
                         até {installment.amount}x de {' '}
                         {Currency.format(installment.value)}
-                    </span> */}
+                    </span>
                 </div>
                 <button
                     type="button"
                     className="flex justify-center items-center gap-2 h-8 bg-violet-700 hover:bg-violet-600 transition-colors group"
                     onClick={(e) => {
                         e.preventDefault();
-                        // adicionarItem(props.product);
+                        addItem(product);
                     }}
                 >
                     <IconShoppingCartPlus size={20} />

@@ -10,11 +10,11 @@ export default function ScoreReview(props: ScoreReviewProps) {
         const stars = [];
         for (let i = 1; i <= 5; i++) {
             if (i <= score) {
-                stars.push(<IconStarFilled size={props.size} />);
+                stars.push(<IconStarFilled key={`start-filled-${i}`} size={props.size} />);
             } else if (score >= 1 - 0.5) {
-                stars.push(<IconStarHalfFilled size={props.size} />);
+                stars.push(<IconStarHalfFilled key={`start-half-${i}`} size={props.size} />);
             } else {
-                stars.push(<IconStar size={props.size} />);
+                stars.push(<IconStar key={`start-empty-${i}`} size={props.size} />);
             }
         }
         return stars;

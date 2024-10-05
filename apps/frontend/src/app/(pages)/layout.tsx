@@ -1,4 +1,7 @@
 import Page from "@/components/template/page";
+import { CartProvider } from "@/data/contexts/CartContext";
+import { PaymentProvider } from "@/data/contexts/PaymentContext";
+import { ProductProvider } from "@/data/contexts/ProductContext";
 import type { ReactNode } from "react";
 
 interface LayoutProps extends React.PropsWithChildren {
@@ -7,8 +10,14 @@ interface LayoutProps extends React.PropsWithChildren {
 
 export default function Layout (props: LayoutProps) {
     return (
-        <Page>
-            {props.children}
-        </Page>
+        <ProductProvider>
+            <CartProvider>
+                <PaymentProvider>
+                    <Page>
+                        {props.children}
+                    </Page>
+                </PaymentProvider>
+            </CartProvider>
+        </ProductProvider>
     );
 }

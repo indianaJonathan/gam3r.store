@@ -1,9 +1,12 @@
+"use client"
+
 import Link from "next/link";
 import CartIcon from "../shared/cart-icon";
 import Logo from "../shared/logo";
+import useCart from "@/data/hooks/useCart";
 
 export default function Header () {
-    const itemsAmount = 0;
+    const { itemsAmount } = useCart();
     return (
         <div
             className="flex flex-col h-20"

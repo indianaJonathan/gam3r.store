@@ -10,6 +10,12 @@ Install dependencies
 npm install
 ```
 
+Setup the environment variables (.env)
+
+```env
+NEXT_PUBLIC_API_URL=<YOUR_API_URL> # local environment default is "http://localhost:3005"
+```
+
 Run the project
 
 ```shell
